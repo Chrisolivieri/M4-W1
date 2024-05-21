@@ -105,3 +105,16 @@ console.log(angolo(167))
 
 //8 Crea una funzione che crei un acronimo a partire da una frase. Es. “Fabbrica Italiana Automobili Torino” deve ritornare “FIAT”.
 
+function cambiaCarattere(fiat){
+
+    let FIAT = fiat.toUpperCase()
+    let arr = FIAT.split(" ")
+    let acronimo = ""
+
+    for(index of arr){
+        acronimo += index.charAt(0)
+    }
+    return acronimo
+}
+
+console.log(cambiaCarattere("Fabbrica Italiana Automobili Torino"))
