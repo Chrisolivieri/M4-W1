@@ -19,8 +19,18 @@ console.log(controlloNumeri(25,50))
 //2 Crea una funzione che rimuove il carattere ad una specifica posizione da una stringa. Passa la stringa e la posizione come parametri e ritorna la stringa modificata.
 
 function togliCarattere(parola, posizione) {
+
+    var newParola =  parola.split("")
     
+
+    newParola.splice(posizione,1)
+
+    return newParola.join("")
 }
+
+console.log(togliCarattere("casa",0)
+
+)
 
 
 
