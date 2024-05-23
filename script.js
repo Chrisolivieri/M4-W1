@@ -128,3 +128,66 @@ function cambiaCarattere(fiat){
 }
 
 console.log(cambiaCarattere("Fabbrica Italiana Automobili Torino"))
+
+
+//EXTRA
+
+//1 Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa
+
+function caratterePiuUsato(stringa){
+    
+    let letteraInPiu = "" //lettera più usata
+    let count = 0 //variabile per contare quante volte viene ripetuta una lettere
+    let arrLettere = stringa.split("") //creo array dalla stringa 
+
+    for( let i = 0; i < arrLettere.length; i++){
+        let singolaLettera = stringa.split(stringa.charAt(i)).length-1 // splitto la stringa per il carattere che sto ciclando, calcoliamo quante volte è presente quella lettere all'interno e tolgo 1
+
+        if(singolaLettera > count){
+            count = singolaLettera
+            letteraInPiu = stringa.charAt(i)
+        }
+
+    }
+
+    return letteraInPiu
+ 
+ 
+}
+ console.log(caratterePiuUsato("casa"))
+
+ //2 Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra. Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.
+
+ function controlloStringhe(a, b){
+
+     let array2 = b.toLowerCase().split("").sort().join("")
+     let array1 = a.toLowerCase().split("").sort().join("")
+     
+
+      if(array1 === array2){
+        return true
+      } else{
+        return false
+      }
+
+ }
+
+ console.log(controlloStringhe("notizia" , "tiziano"))
+
+ //3 Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
+
+ function anagramma(par1, par2){
+
+   let array = []
+
+   for(let i = 0; i < par1.length; i++){
+    if(controlloStringhe(par1[i], par2)){
+        array.push(par1[i])
+    }
+   }
+   return array
+ }
+
+ console.log(anagramma(["ciao" , "notizia"], "tiziano"))
+
+ //4 Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è.
